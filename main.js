@@ -8,6 +8,10 @@ const createImageRouter = require("./util/routeFactory");
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
+
 // Cache mechanism
 const cache = {
   imageUrls: {},
@@ -72,4 +76,4 @@ async function initializeServer() {
 initializeServer();
 
 // Export cache for use in other modules
-module.exports = cache;
+module.exports = app;
