@@ -1,5 +1,7 @@
 # ImageStore API
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/saadh393/ImageStoreApi)
+
 A robust Express.js API for managing and serving images with on-the-fly processing capabilities. The API allows you to fetch random images, get specific images by ID, and add new image URLs to the collection.
 
 ## Features
@@ -42,8 +44,6 @@ Base URL: `/property`
    - Output Directory: `.`
    - Install Command: `npm install`
    - Framework Preset: `Node.js`
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/saadh393/ImageStoreApi)
 
 ### Environment Variables
 
