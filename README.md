@@ -43,7 +43,7 @@ Base URL: `/property`
    - Install Command: `npm install`
    - Framework Preset: `Node.js`
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/imagestore)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/saadh393/ImageStoreApi)
 
 ### Environment Variables
 
