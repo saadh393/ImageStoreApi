@@ -1,79 +1,80 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const fs = require("fs").promises;
-const chokidar = require("chokidar"); // You'll need to install this: npm install chokidar
 const path = require("path");
+const sqlite3 = require("sqlite3").verbose();
 const createImageRouter = require("./util/routeFactory");
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
+// Database setup
+const db = new sqlite3.Database("images.db", (err) => {
+  if (err) {
+    console.error("Error connecting to database:", err);
+  } else {
+    console.log("Connected to SQLite database");
+    // Create tables if they don't exist
+    db.run(`CREATE TABLE IF NOT EXISTS images (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      category TEXT NOT NULL,
+      url TEXT NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+  }
 });
 
-// Cache mechanism
-const cache = {
-  imageUrls: {},
-  async updateData() {
-    try {
-      await fs.writeFile(
-        path.join(__dirname, "data.json"),
-        JSON.stringify(this.imageUrls, null, 2)
+// Database interface
+const dbInterface = {
+  async getImageUrls(category) {
+    return new Promise((resolve, reject) => {
+      db.all(
+        "SELECT url FROM images WHERE category = ?",
+        [category],
+        (err, rows) => {
+          if (err) reject(err);
+          resolve(rows.map((row) => row.url));
+        }
       );
-    } catch (error) {
-      console.error("Error updating cache:", error);
-    }
+    });
   },
-  async updateCache() {
-    try {
-      const data = await fs.readFile(
-        path.join(__dirname, "data.json"),
-        "utf-8"
+
+  async addImageUrl(category, url) {
+    return new Promise((resolve, reject) => {
+      db.run(
+        "INSERT INTO images (category, url) VALUES (?, ?)",
+        [category, url],
+        (err) => {
+          if (err) reject(err);
+          resolve();
+        }
       );
-      this.imageUrls = JSON.parse(data);
-      console.log("Cache updated successfully");
-    } catch (error) {
-      console.error("Error updating cache:", error);
-    }
+    });
   },
 };
 
-// File watcher
-const watcher = chokidar.watch(path.join(__dirname, "data.json"), {
-  persistent: true,
-});
-
-watcher.on("change", async (path) => {
-  console.log(`File ${path} has been changed`);
-  await cache.updateCache();
-});
-
-// Initialize cache before starting server
-async function initializeServer() {
-  await cache.updateCache();
-
-  // Use cached data in router
-  app.use(
-    "/property",
-    (req, res, next) => {
-      req.imageUrls = cache.imageUrls.property;
-      req.cache = cache;
+// Middleware to attach database interface to requests
+app.use(
+  "/property",
+  async (req, res, next) => {
+    try {
+      req.imageUrls = await dbInterface.getImageUrls("property");
+      req.db = dbInterface;
       next();
-    },
-    createImageRouter()
-  );
+    } catch (err) {
+      next(err);
+    }
+  },
+  createImageRouter()
+);
 
-  app.get("/", (req, res) => {
-    res.json(cache.imageUrls);
-  });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
-  app.listen(port, () => {
-    console.log(`Image proxy server running at http://localhost:${port}`);
-  });
-}
+app.listen(port, () => {
+  console.log(`Image proxy server running at http://localhost:${port}`);
+});
 
-initializeServer();
-
-// Export cache for use in other modules
+// Export app for use in other modules
 module.exports = app;

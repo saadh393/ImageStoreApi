@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImageStore API - Smart Placeholder Images for Developers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Primary Meta Tags -->
+    <meta
+      name="title"
+      content="ImageStore API - Smart Placeholder Images for Developers"
+    />
+    <meta
+      name="description"
+      content="Stop using boring placeholder images. Get contextually relevant, high-quality images for your next development project. Free API for property images with more categories coming soon!"
+    />
+    <meta
+      name="keywords"
+      content="placeholder images, developer tools, image API, placeholder API, property images, development placeholder"
+    />
+    <meta name="author" content="Saad Hasan" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://image-store-api-sigma.vercel.app/"
+    />
+    <meta
+      property="og:title"
+      content="ImageStore API - Smart Placeholder Images for Developers"
+    />
+    <meta
+      property="og:description"
+      content="Stop using boring placeholder images. Get contextually relevant, high-quality images for your next development project."
+    />
+    <meta
+      property="og:image"
+      content="https://image-store-api-sigma.vercel.app/meta.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://image-store-api-sigma.vercel.app/"
+    />
+    <meta
+      property="twitter:title"
+      content="ImageStore API - Smart Placeholder Images for Developers"
+    />
+    <meta
+      property="twitter:description"
+      content="Stop using boring placeholder images. Get contextually relevant, high-quality images for your next development project."
+    />
+    <meta
+      property="twitter:image"
+      content="https://image-store-api-sigma.vercel.app/property/random"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-indigo-600"
+              >ImageStore API</span
+            >
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="#about" class="text-gray-700 hover:text-indigo-600"
+              >About</a
+            >
+            <a href="#api" class="text-gray-700 hover:text-indigo-600">API</a>
+            <a href="#deploy" class="text-gray-700 hover:text-indigo-600"
+              >Deploy</a
+            >
+            <a href="#contribute" class="text-gray-700 hover:text-indigo-600"
+              >Contribute</a
+            >
+            <a
+              href="https://github.com/saadh393/ImageStoreApi"
+              class="text-gray-700 hover:text-indigo-600"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-white pt-16">
+      <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1
+            class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
+          >
+            Smart Placeholder Images
+          </h1>
+          <p class="mt-4 text-xl text-gray-500">
+            Stop using boring placeholder images. Get contextually relevant,
+            high-quality images for your next project.
+          </p>
+          <div class="mt-8 flex justify-center space-x-4">
+            <a
+              href="#api"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+            >
+              Get Started
+            </a>
+            <a
+              href="#deploy"
+              class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+            >
+              Deploy Your Own
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section id="about" class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">
+          Why ImageStore API?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="text-2xl mb-4">🎯</div>
+            <h3 class="text-lg font-semibold mb-2">Contextual Images</h3>
+            <p class="text-gray-600">
+              Get relevant images that match your project's context, not just
+              random boxes
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="text-2xl mb-4">⚡</div>
+            <h3 class="text-lg font-semibold mb-2">Customizable Quality</h3>
+            <p class="text-gray-600">
+              Control image quality (0-100) to match your performance needs
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="text-2xl mb-4">🔄</div>
+            <h3 class="text-lg font-semibold mb-2">Growing Categories</h3>
+            <p class="text-gray-600">
+              Property images available now. E-commerce, emoji, and person
+              images coming soon!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="api" class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">API Usage</h2>
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="px-6 py-4 bg-gray-50 border-b">
+            <h3 class="text-lg font-semibold">
+              Base URL: https://image-store-api-sigma.vercel.app
+            </h3>
+          </div>
+          <div class="divide-y">
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="px-2 py-1 text-sm font-semibold bg-green-100 text-green-800 rounded"
+                  >GET</span
+                >
+                <code class="ml-3 text-sm">/property/random</code>
+              </div>
+              <p class="text-gray-600">Get a random property image</p>
+              <div class="mt-4">
+                <p class="text-sm text-gray-500">Example:</p>
+                <code class="block bg-gray-100 p-2 rounded mt-2">
+                  https://image-store-api-sigma.vercel.app/property/random?q=80
+                </code>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="px-2 py-1 text-sm font-semibold bg-green-100 text-green-800 rounded"
+                  >GET</span
+                >
+                <code class="ml-3 text-sm">/property/:id</code>
+              </div>
+              <p class="text-gray-600">Get a specific property image by ID</p>
+              <div class="mt-4">
+                <p class="text-sm text-gray-500">Example:</p>
+                <code class="block bg-gray-100 p-2 rounded mt-2">
+                  https://image-store-api-sigma.vercel.app/property/2?q=80
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="deploy" class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">
+          Deploy Your Own Instance
+        </h2>
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="text-center mb-8">
+            <p class="text-lg text-gray-600 mb-4">
+              Want to run your own instance? Deploy to Vercel with one click!
+            </p>
+            <a
+              href="https://vercel.com/new/clone?repository-url=https://github.com/saadh393/ImageStoreApi"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800"
+            >
+              <svg
+                class="h-5 w-5 mr-2"
+                viewBox="0 0 76 65"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#ffffff" />
+              </svg>
+              Deploy to Vercel
+            </a>
+          </div>
+          <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-4">Or deploy manually:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-600">
+              <li>
+                Fork the
+                <a
+                  href="https://github.com/saadh393/ImageStoreApi"
+                  class="text-indigo-600 hover:text-indigo-800"
+                  >repository</a
+                >
+              </li>
+              <li>Clone your fork</li>
+              <li>
+                Deploy using Vercel CLI or connect your repository through
+                Vercel's dashboard
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="contribute" class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">
+          Contribute to ImageStore API
+        </h2>
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="prose max-w-none">
+            <p class="text-lg text-gray-600 mb-6">
+              We welcome contributions from developers of all skill levels! This
+              is a perfect opportunity to:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+              <li>Gain real-world open source experience</li>
+              <li>Add a meaningful contribution to your CV</li>
+              <li>Help improve a tool used by other developers</li>
+              <li>Learn about API development and image processing</li>
+            </ul>
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+              <p class="text-green-700">
+                We review and merge all relevant pull requests! Your
+                contribution could be the next feature that helps fellow
+                developers.
+              </p>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Coming Soon Features</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+              <li>E-commerce product images</li>
+              <li>Emoji and icon placeholders</li>
+              <li>Person/avatar images</li>
+              <li>Custom size parameters</li>
+            </ul>
+            <a
+              href="https://github.com/saadh393/ImageStoreApi"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+            >
+              Start Contributing
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-white border-t">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-gray-500">
+          Made with ❤️ for the developer community
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebAPI",
+        "name": "ImageStore API",
+        "description": "A free API service providing contextually relevant placeholder images for developers",
+        "url": "https://image-store-api-sigma.vercel.app/",
+        "documentation": "https://github.com/saadh393/ImageStoreApi",
+        "provider": {
+          "@type": "Person",
+          "name": "Saad Hasan"
+        }
+      }
+    </script>
+  </body>
+</html>

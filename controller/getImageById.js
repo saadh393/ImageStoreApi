@@ -3,9 +3,9 @@ const processImage = require("../util/processImage");
 
 async function getImageById(req, res, imageUrls) {
   try {
-    const quality = req.query.q;
-    const randomIndex = Math.floor(Math.random() * imageUrls.length);
-    const imageUrl = imageUrls[randomIndex];
+    const quality = req?.query?.q || 90;
+    const id = req.params.id;
+    const imageUrl = imageUrls[id % imageUrls.length];
 
     const response = await axios({
       url: imageUrl,
